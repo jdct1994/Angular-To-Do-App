@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<!-- an ng-app directive in the tag. an ng-controller directive in the tag.
+an ng-repeat directive to generate the rows of Top Spots data -->
+
+
+<html lang="en" ng-app="ToDoListApp">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List App</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="/app/styles/styles.css">
+<!-- endinject -->
+</head>
+
+<body ng-controller="MainController">
+
+<h1 id="header1">To-Do List</h1>
+
+<div id="wrapper">
+<input ng-model="todoInput" id="addTodoInput" type="text" class="form-control input-lg" placeholder="Add Todo Item">
+
+<select ng-model="priority" id="selectDropdown" class="form-control">
+  <option value="" label="Select Priority Level" disabled selected></option>
+  <option value="3">High Priority</option>
+  <option value="2">Medium Priority</option>
+  <option value="1">Low Priority</option>
+</select>
+<button ng-click="addTodo()" id="addTodoButton" type="button" class="form-control">Add Todo</button>
+</div>
+<br>
+
+
+<form id="OrderButtons" class="form-inline">
+<button ng-click="sort= '-priority';" type="button" class="btn btn-danger">Order by Highest Priority</button>
+<button ng-click="sort= '+name'" type="button" class="btn btn-warning">Order Alphabetically</button>
+<button ng-click="sort = '+priority';" type="button" class="btn btn-success">Order by Lowest Priority</button>
+</form>
+<br>
+
+<div id="wrapper">
+    <table class="table">
+    <th id="tableHeader">Todo List Table</th>
+        <tr class="animated fadeIn" ng-repeat="x in todos | orderBy: sort" ng-class="{'bg-success': x.priority === '1', 'bg-warning': x.priority === '2', 'bg-danger': x.priority === '3'}">
+            <td class="ng-cloak">{{x.name}}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<!-- endinject -->
+</body>
+</html>

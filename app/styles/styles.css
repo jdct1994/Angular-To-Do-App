@@ -1,0 +1,30 @@
+#header1{
+	text-align: center;
+	margin-top: 40px;
+	font-size: 5em;
+}
+
+#wrapper {
+	width: 520px;
+	margin: 0 auto;
+}
+
+#OrderButtons {
+	text-align: center;
+}
+
+#tableHeader {
+	text-align: center;
+}
+
+#addTodoButton {
+	margin-top: 10px;
+}
+
+#selectDropdown {
+	margin-top: 10px;
+}
+
+#addTodoInput {
+	margin-top: 25px;
+}
